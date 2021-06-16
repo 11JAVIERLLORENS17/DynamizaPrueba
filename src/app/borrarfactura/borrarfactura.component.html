@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Borrar factura
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="ID">ID: </label>
+          <input type="text" class="form-control col-md-2" name="id" [(ngModel)]="factura.id" #id="ngModel" disabled>
+
+          <label class="col-md-1 col-form-label" value="Cliente">Cliente</label>
+          <input type="text" class="form-control col-md-7" name="cliente" [(ngModel)]="factura.cliente"
+            #cliente="ngModel" disabled>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Fecha">Fecha: </label>
+          <input type="date" class="form-control col-md-2" name="fecha" [(ngModel)]="factura.fecha" #fecha="ngModel"
+            disabled>
+
+          <label class="col-md-1 col-form-label" value="Importe">Importe: </label>
+          <input type="number" class="form-control col-md-2" name="importe" [(ngModel)]="factura.importe"
+            #importe="ngModel" disabled>
+
+          <label class="col-md-2 col-form-label" value="IVA">IVA: </label>
+          <input type="number" class="form-control col-md-1" name="iva" [(ngModel)]="factura.iva" #iva="ngModel"
+            disabled>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Eliminar" style="margin-right: 10px">
+        <button class="btn btn-primary" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

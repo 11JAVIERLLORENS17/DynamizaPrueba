@@ -1,0 +1,39 @@
+<a href="/nuevoempleado" class="btn btn-info float-left ml-4">Nuevo empleado</a>
+<h1>
+  Empleados
+</h1>
+
+<div *ngIf="empleados!=null; else espera">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="filters">
+        <th>Posición</th>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Cargo</th>
+        <th>Contrato</th>
+        <th>Creado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados | paginate: { itemsPerPage: 5, currentPage: page}; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ empleado.id }}</td>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.edad }}</td>
+        <td>{{ empleado.cargo }}</td>
+        <td>{{ empleado.contratado }}</td>
+        <td>{{ empleado.created_at }}</td>
+        <td>
+          <button [routerLink]="['/modificarempleado/',empleado.id]" type="button"
+            class="btn btn-warning mr-4">Modificar</button>
+          <button [routerLink]="['/borrarempleado/',empleado.id]" type="button" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<ng-template #espera>Esperando datos...</ng-template>

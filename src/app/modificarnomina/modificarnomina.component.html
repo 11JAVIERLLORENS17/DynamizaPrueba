@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Modificar nomina
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="ID">ID: </label>
+          <input type="text" class="form-control col-md-2" name="id" [(ngModel)]="nomina.id" #id="ngModel" disabled>
+
+          <label class="col-md-1 col-form-label" value="Nombre">Nombre</label>
+          <input type="text" class="form-control col-md-7" name="nombre" [(ngModel)]="nomina.nombre" #nombre="ngModel"
+            required>
+          <span *ngIf="nombre.touched && !nombre.valid">
+            Introduzca el nombre
+          </span>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Fecha">Fecha: </label>
+          <input type="date" class="form-control col-md-2" name="fecha" [(ngModel)]="nomina.fecha" #fecha="ngModel"
+            required>
+          <span *ngIf="fecha.touched && !fecha.valid">
+            Introduzca la fecha
+          </span>
+
+          <label class="col-md-1 col-form-label" value="Bruto">Bruto: </label>
+          <input type="number" class="form-control col-md-2" name="bruto" [(ngModel)]="nomina.bruto" #bruto="ngModel"
+            required>
+          <span *ngIf="bruto.touched && !bruto.valid">
+            Introduzca el bruto
+          </span>
+
+          <label class="col-md-2 col-form-label" value="Retencion">Retencion: </label>
+          <input type="number" class="form-control col-md-1" name="retencion" [(ngModel)]="nomina.retencion"
+            #retencion="ngModel" required>
+          <span *ngIf="retencion.touched && !retencion.valid">
+            Introduzca retencion
+          </span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Enviar" [disabled]="!formConsulta.form.valid"
+          style="margin-right: 10px">
+        <button class="btn btn-danger" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

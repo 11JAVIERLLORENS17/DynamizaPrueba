@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Borrar comment
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="ID">ID: </label>
+          <input type="text" class="form-control col-md-2" name="id" [(ngModel)]="comment.id" #id="ngModel" disabled>
+
+          <label class="col-md-1 col-form-label" value="Nombre">Nombre</label>
+          <input type="text" class="form-control col-md-7" name="nombre" [(ngModel)]="comment.nombre" #nombre="ngModel"
+            disabled>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Email">Email: </label>
+          <input type="email" class="form-control col-md-2" name="email" [(ngModel)]="comment.email" #email="ngModel"
+            disabled>
+
+          <label class="col-md-1 col-form-label" value="Mensaje">Mensaje: </label>
+          <input type="text" class="form-control col-md-2" name="mensaje" [(ngModel)]="comment.mensaje"
+            #mensaje="ngModel" disabled>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Eliminar" style="margin-right: 10px">
+        <button class="btn btn-primary" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

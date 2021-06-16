@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Borrar empleado
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="ID">ID: </label>
+          <input type="text" class="form-control col-md-2" name="id" [(ngModel)]="empleado.id" #id="ngModel" disabled>
+
+          <label class="col-md-1 col-form-label" value="Nombre">Nombre</label>
+          <input type="text" class="form-control col-md-7" name="nombre" [(ngModel)]="empleado.nombre" #nombre="ngModel"
+            disabled>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Edad">Edad: </label>
+          <input type="text" class="form-control col-md-2" name="edad" [(ngModel)]="empleado.edad" #edad="ngModel"
+            disabled>
+
+          <label class="col-md-1 col-form-label" value="Cargo">Cargo: </label>
+          <input type="text" class="form-control col-md-2" name="cargo" [(ngModel)]="empleado.cargo" #cargo="ngModel"
+            disabled>
+
+          <label class="col-md-2 col-form-label" value="Contratado">Contratado (0/1): </label>
+          <input type="text" class="form-control col-md-1" name="contratado" [(ngModel)]="empleado.contratado"
+            #contratado="ngModel" disabled>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Eliminar" style="margin-right: 10px">
+        <button class="btn btn-primary" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

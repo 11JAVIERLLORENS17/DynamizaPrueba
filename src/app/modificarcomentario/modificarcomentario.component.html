@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Modificar comment
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="ID">ID: </label>
+          <input type="text" class="form-control col-md-2" name="id" [(ngModel)]="comment.id" #id="ngModel" disabled>
+
+          <label class="col-md-1 col-form-label" value="Nombre">Nombre</label>
+          <input type="text" class="form-control col-md-7" name="nombre" [(ngModel)]="comment.nombre" #nombre="ngModel"
+            required>
+          <span *ngIf="nombre.touched && !nombre.valid">
+            Introduzca el nombre
+          </span>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Email">Email: </label>
+          <input type="email" class="form-control col-md-2" name="email" [(ngModel)]="comment.email" #email="ngModel"
+            required>
+          <span *ngIf="email.touched && !email.valid">
+            Introduzca el email
+          </span>
+
+          <label class="col-md-1 col-form-label" value="Mensaje">Mensaje: </label>
+          <input type="text" class="form-control col-md-2" name="mensaje" [(ngModel)]="comment.mensaje"
+            #mensaje="ngModel" required>
+          <span *ngIf="mensaje.touched && !mensaje.valid">
+            Introduzca el mensaje
+          </span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Enviar" [disabled]="!formConsulta.form.valid"
+          style="margin-right: 10px">
+        <button class="btn btn-danger" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

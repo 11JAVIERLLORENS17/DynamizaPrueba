@@ -1,0 +1,38 @@
+<a href="/nuevafactura" class="btn btn-info float-left ml-4">Nueva factura</a>
+<h1>
+  Facturas
+</h1>
+<div *ngIf="facturas!=null; else espera">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="filters">
+        <th>Posición</th>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Fecha</th>
+        <th>Importe</th>
+        <th>IVA</th>
+        <th>Creado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factura of facturas | paginate: { itemsPerPage: 5, currentPage: page}; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ factura.id }}</td>
+        <td>{{ factura.cliente }}</td>
+        <td>{{ factura.fecha }}</td>
+        <td>{{ factura.importe }}</td>
+        <td>{{ factura.iva }}</td>
+        <td>{{ factura.created_at }}</td>
+        <td>
+          <button [routerLink]="['/modificarfactura/',factura.id]" type="button"
+            class="btn btn-warning mr-4">Modificar</button>
+          <button [routerLink]="['/borrarfactura/',factura.id]" type="button" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<ng-template #espera>Esperando datos...</ng-template>

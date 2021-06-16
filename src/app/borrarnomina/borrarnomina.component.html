@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Borrar nomina
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="ID">ID: </label>
+          <input type="text" class="form-control col-md-2" name="id" [(ngModel)]="nomina.id" #id="ngModel" disabled>
+
+          <label class="col-md-1 col-form-label" value="Nombre">Nombre</label>
+          <input type="text" class="form-control col-md-7" name="nombre" [(ngModel)]="nomina.nombre" #nombre="ngModel"
+            disabled>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Fecha">Fecha: </label>
+          <input type="date" class="form-control col-md-2" name="fecha" [(ngModel)]="nomina.fecha" #fecha="ngModel"
+            disabled>
+
+          <label class="col-md-1 col-form-label" value="Bruto">Bruto: </label>
+          <input type="number" class="form-control col-md-2" name="bruto" [(ngModel)]="nomina.bruto" #bruto="ngModel"
+            disabled>
+
+          <label class="col-md-2 col-form-label" value="Retencion">Retencion: </label>
+          <input type="number" class="form-control col-md-1" name="retencion" [(ngModel)]="nomina.retencion"
+            #retencion="ngModel" disabled>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Eliminar" style="margin-right: 10px">
+        <button class="btn btn-primary" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card mt-4">
+    <h1>
+      Nuevo factura
+    </h1>
+    <div class="card-body">
+      <form id="formConsulta" #formConsulta="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Cliente">Cliente</label>
+          <input type="text" class="form-control col-md-8" name="cliente" [(ngModel)]="factura.cliente"
+            #cliente="ngModel" required>
+          <span *ngIf="cliente.touched && !cliente.valid">
+            Introduzca el cliente
+          </span>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-1 col-form-label" value="Fecha">Fecha: </label>
+          <input type="date" class="form-control col-md-2" name="fecha" [(ngModel)]="factura.fecha" #fecha="ngModel"
+            required>
+          <span *ngIf="fecha.touched && !fecha.valid">
+            Introduzca la fecha
+          </span>
+
+          <label class="col-md-1 col-form-label" value="Importe">Importe: </label>
+          <input type="number" class="form-control col-md-2" name="importe" [(ngModel)]="factura.importe"
+            #importe="ngModel" required>
+          <span *ngIf="importe.touched && !importe.valid">
+            Introduzca el importe
+          </span>
+
+          <label class="col-md-2 col-form-label" value="IVA">IVA: </label>
+          <input type="number" class="form-control col-md-1" name="iva" [(ngModel)]="factura.iva" #iva="ngModel"
+            required>
+          <span *ngIf="iva.touched && !iva.valid">
+            Introduzca IVA
+          </span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Enviar" [disabled]="!formConsulta.form.valid"
+          style="margin-right: 10px">
+        <button class="btn btn-danger" (click)="cancel(); $event.preventDefault()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>
